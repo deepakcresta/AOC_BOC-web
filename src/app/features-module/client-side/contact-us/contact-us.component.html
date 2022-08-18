@@ -1,1 +1,171 @@
-<p>contact-us works!</p>
+<section class="contact_section layout_padding" id="contact">
+  <div class="container">
+    <div class="heading_container fw-bold text-uppercase">
+      <h2>Contact Us</h2>
+    </div>
+    <div class="row row-cols-1 row-cols-md-2 g-2">
+      <div class="form-container cols-md-6">
+        <form [formGroup]="contactForm">
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group p-2">
+                <input type="text" formControlName="name" name="name" id="name" class="form-control" placeholder="Name"
+                  required style="
+                    border: none;
+                    box-shadow: 0 0 5px 0 rgb(0 0 0 / 15%);
+                    height: 50px;
+                  " />
+                <span *ngIf="
+                    submitted ||
+                    forms['name'].dirty ||
+                    (forms['name'].touched && forms['name'].invalid)
+                  "
+                  class="info-msg text-danger"
+                >
+                  <small
+                    *ngIf="forms['name'].errors &&
+                              forms['name'].errors?.['required']"
+                  >
+                    *Name is required !
+                  </small>
+                  <small *ngIf="forms['name'].errors?.['minlength']">
+                    *You name must have atleast 3 characters !
+                  </small>
+                  <small *ngIf="forms['name'].errors?.['maxlength']">
+                    *Your name should not be more than 60 chracters !
+                  </small>
+                  <small *ngIf="forms['name'].errors?.['pattern']">
+                    *Your name should contain alphabet letters !
+                  </small>
+                </span>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group p-2">
+                <input type="text" formControlName="phoneNumber" name="phoneNumber" class="form-control"
+                  placeholder="Phone Number" style="
+                    border: none;
+                    box-shadow: 0 0 5px 0 rgb(0 0 0 / 15%);
+                    height: 50px;
+                  " required />
+                <span *ngIf="
+                    submitted ||
+                    forms['phoneNumber'].dirty ||
+                    (forms['phoneNumber'].touched &&
+                      forms['phoneNumber'].invalid)
+                  "
+                  class="info-msg text-danger"
+                >
+                  <small
+                    *ngIf="forms['phoneNumber'].errors &&
+                              forms['phoneNumber'].errors?.['required']"
+                  >
+                    *Phone Number is required !
+                  </small>
+                  <small *ngIf="forms['phoneNumber'].errors?.['minlength']">
+                    *Phone Number should be 10 digits!
+                  </small>
+                  <small *ngIf="forms['phoneNumber'].errors?.['pattern']">
+                    * Phone number should contain nummeic value!
+                  </small>
+                  <small *ngIf="forms['phoneNumber'].errors?.['maxlength']">
+                    *Phone Number should not bemore than 10 digits!
+                  </small>
+                </span>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group p-2 mt-4">
+                <input type="email" formControlName="email" name="email" class="form-control" required style="
+                    border: none;
+                    box-shadow: 0 0 5px 0 rgb(0 0 0 / 15%);
+                    height: 50px;
+                  "
+                  placeholder="Email"
+                />
+                <span
+                  *ngIf="
+                    submitted ||
+                    forms['email'].dirty ||
+                    (forms['email'].touched && forms['email'].invalid)
+                  "
+                  class="info-msg text-danger"
+                >
+                  <small
+                    *ngIf="forms['email'].errors &&
+                                forms['email'].errors?.['required']"
+                  >
+                    * Email is required
+                  </small>
+                  <small *ngIf="forms['email'].errors?.['pattern']">
+                    *Invalid Email enter the valid email!
+                  </small>
+                  <small *ngIf="forms['email'].errors?.['minlength']">
+                    *Email should be atleast 8 characters!
+                  </small>
+                  <small *ngIf="forms['phoneNumber'].errors?.['maxlength']">
+                    *Email should not be more thab 80 characters!
+                  </small>
+                </span>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group p-2">
+                <input type="text" formControlName="message" name="message" class="form-control" placeholder="message"
+                  required style="
+                    height: 110px;
+                    border: none;
+                    box-shadow: 0 0 5px 0 rgb(0 0 0 / 15%);
+                  " placeholder="Message" />
+                <span *ngIf="
+                    submitted ||
+                    forms['message'].dirty ||
+                    (forms['message'].touched && forms['message'].invalid)
+                  "
+                  class="info-msg text-danger"
+                >
+                  <small
+                    *ngIf="forms['message'].errors &&
+                                forms['message'].errors?.['required']"
+                  >
+                    *It would be better if you leave a message !
+                  </small>
+                </span>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="d-grid col-4 p-3">
+              <button type="button" class="mt-4 p-2 col-sm-8 btn btn-secondary" (click)="onSendForm(contactForm.value)">
+                Send
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+
+      <div class="col-md-6">
+        <div id="googlemap" style="position: relative; overflow: hidden; margin-top: 15px">
+          <!-- <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3531.9670929240797!2d85.35002811506236!3d27.71830228278726!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39eb194d493f0793%3A0x7f0a62d04f2d4883!2sAadim%20National%20College!5e0!3m2!1sne!2snp!4v1653658482766!5m2!1sne!2snp"
+            style="border: 0; height: 26rem; width: 35rem"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+          ></iframe> -->
+
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3532.0245642560285!2d85.34636301450162!3d27.71652783169649!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39eb19cf6b33122f%3A0xeec4352037f47cc8!2sAadim%20Innovation!5e0!3m2!1sne!2snp!4v1654528236997!5m2!1sne!2snp"
+            width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
