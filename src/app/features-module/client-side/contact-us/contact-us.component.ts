@@ -5,16 +5,17 @@ import {
   FormBuilder,
   FormGroup,
   Validators,
+  FormsModule
 } from '@angular/forms';
 import { Router } from '@angular/router';
 
-
 @Component({
   selector: 'app-contact-us',
-  templateUrl:'./contact-us.component.html',
+  templateUrl: './contact-us.component.html',
   styleUrls: ['./contact-us.component.css']
 })
 export class ContactUsComponent implements OnInit {
+
   contactForm: FormGroup = new FormGroup({});
   submitted: boolean = false;
 
@@ -23,7 +24,7 @@ export class ContactUsComponent implements OnInit {
   constructor(
     private router: Router,
     private formBuilder: FormBuilder,
-
+  
   ) {}
   ngOnInit(): void {
     this.contactForm = this.formBuilder.group({
@@ -61,11 +62,14 @@ export class ContactUsComponent implements OnInit {
     return this.contactForm.controls;
   }
   onSendForm(contact: any) {
-    this.submitted = true;
-  
 
   }
-
+  reloadComponent() {
+    let currentUrl = this.router.url;
+    this.router.routeReuseStrategy.shouldReuseRoute = () => false;
+    this.router.onSameUrlNavigation = 'reload';
+    this.router.navigate([currentUrl]);
+  }
   }
  
 
