@@ -1,0 +1,232 @@
+<div class="container">
+    <div class="row mt-3">
+      <div class="col-sm-6">
+        <div class="card shadow bg-body rounded p-3">
+          <div class="row">
+            <div class="col-sm-12">
+              <h4>Add Member's Details</h4>
+            </div>
+          </div>
+          <hr class="cms_line" />
+          <form [formGroup]="addMemberForm">
+            <div class="row">
+              <div class="col-sm-12">
+                <div class="form-group">
+                  <label>Full Name <span class="text-danger">*</span> </label>
+                  <input
+                    class="form-control"
+                    type="text"
+                    formControlName="name"
+                    name="name"
+                    placeholder="Enter your full name"
+                  />
+                  <span
+                    *ngIf="
+                      submitted ||
+                      forms['name'].dirty ||
+                      (forms['name'].touched && forms['name'].invalid)
+                    "
+                    class="info-msg text-danger"
+                  >
+                    <small
+                      *ngIf="forms['name'].errors &&
+                                      forms['name'].errors?.['required']"
+                    >
+                      Member's full name is required !
+                    </small>
+                  </span>
+                </div>
+              </div>
+  
+              <div class="col-sm-12">
+                <div class="form-group">
+                  <label>Address<span class="text-danger">*</span> </label>
+                  <input
+                    class="form-control"
+                    type="text"
+                    formControlName="address"
+                    name="address"
+                    placeholder="Enter your address."
+                  />
+                  <span
+                    *ngIf="
+                      submitted ||
+                      forms['address'].dirty ||
+                      (forms['address'].touched && forms['address'].invalid)
+                    "
+                    class="info-msg text-danger"
+                  >
+                    <small
+                      *ngIf="forms['address'].errors &&
+                                      forms['address'].errors?.['required']"
+                    >
+                      Member's address is required !
+                    </small>
+                  </span>
+                </div>
+              </div>
+
+              <div class="col-sm-12">
+                <div class="form-group">
+                  <label>Crew Name<span class="text-danger">*</span> </label>
+                  <input
+                    class="form-control"
+                    type="text"
+                    formControlName="cname"
+                    name="cname"
+                    placeholder="Enter your crew name."
+                  />
+                  <span
+                    *ngIf="
+                      submitted ||
+                      forms['cname'].dirty ||
+                      (forms['cname'].touched && forms['cname'].invalid)
+                    "
+                    class="info-msg text-danger"
+                  >
+                    <small
+                      *ngIf="forms['cname'].errors &&
+                                      forms['cname'].errors?.['required']"
+                    >
+                      Member's Crew Name is required !
+                    </small>
+                  </span>
+                </div>
+              </div>
+
+              <div class="col-sm-12">
+                <div class="form-group">
+                  <label>Post<span class="text-danger">*</span> </label>
+                  <input
+                    class="form-control"
+                    type="text"
+                    formControlName="post"
+                    name="post"
+                    placeholder="Enter your post."
+                  />
+                  <span
+                    *ngIf="
+                      submitted ||
+                      forms['post'].dirty ||
+                      (forms['post'].touched && forms['post'].invalid)
+                    "
+                    class="info-msg text-danger"
+                  >
+                    <small
+                      *ngIf="forms['post'].errors &&
+                                      forms['post'].errors?.['required']"
+                    >
+                      Member's post is required !
+                    </small>
+                  </span>
+                </div>
+              </div>
+
+              <div class="col-sm-12">
+                <div class="form-group">
+                  <label>Contact<span class="text-danger">*</span> </label>
+                  <input
+                    class="form-control"
+                    type="text"
+                    formControlName="contact"
+                    name="contact"
+                    placeholder="Enter your contact number."
+                  />
+                  <span
+                    *ngIf="
+                      submitted ||
+                      forms['conatct'].dirty ||
+                      (forms['contact'].touched && forms['contact'].invalid)
+                    "
+                    class="info-msg text-danger"
+                  >
+                    <small
+                      *ngIf="forms['contact'].errors &&
+                                      forms['contact'].errors?.['required']"
+                    >
+                      Member's Contact number is required !
+                    </small>
+                  </span>
+                </div>
+              </div>
+              
+
+              <div class="col-sm-12">
+                <div class="form-group">
+                  <label
+                    >Profile Picture <span class="text-danger">*</span>
+                  </label>
+                  <input
+                    class="form-control"
+                    type="file"
+                    accept=".png, .jpg, .jpeg"
+                    (change)="onFileSelected($event)"
+                  />
+                  <span
+                    *ngIf="submitted || isPresentFile"
+                    class="info-msg text-danger"
+                  >
+                    <small *ngIf="!isPresentFile">
+                      member's profile picture is required !
+                    </small>
+                    <small *ngIf="imageTypeError">
+                      Only jpg, jpeg and png with size < 5MB allowed !
+                    </small>
+                  </span>
+  
+                  <div class="row" *ngIf="imageURL && imageURL !== ''">
+                    <div class="col-sm-12 imagePreview">
+                      <img [src]="imageURL" alt="preview image" />
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+
+            </div>
+            <div class="row">
+              <div class="col-sm-12">
+                <div class="form-buttons">
+                  <button mat-stroked-button color="primary" (click)="onCancel()">
+                    Cancel
+                  </button>
+                  <button
+                    mat-raised-button
+                    color="primary"
+                    (click)="onSubmit(addMemberForm.value)"
+                  >
+                    Submit
+                  </button>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+      <!-- <div class="col-sm-6">
+        <div class="card shadow bg-body rounded p-3 sticky-md-top">
+          <div class="row">
+            <div class="col-sm-12">
+              <h4>Preview member's Details</h4>
+            </div>
+          </div>
+          <hr class="cms_line" />
+          
+          <div class="box mx-auto mt-1">
+            <div class="img-box">
+              <img src="{{ imageURL }}" alt="" />
+            </div>
+            <div class="detail-box">
+              <h5>{{ addMberForm.get("name")?.value }}</h5>
+              <h6>{{ addMemberForm.get("subject")?.value }}</h6>
+              <p [innerHTML]="addMemberForm.get('description')?.value?.data"></p>
+            </div>
+          </div>
+          
+        </div>
+      </div> -->
+
+
+    </div>
+  </div>
+  
