@@ -35,7 +35,8 @@ export class AddMembersComponent implements OnInit {
       address: [undefined, Validators.required],
       cname: [undefined, Validators.required],
       post: [undefined, Validators.required],
-      contact: [undefined, Validators.required]
+      contact: [undefined, Validators.required],
+      status: ['DRAFT']
     });
   }
 

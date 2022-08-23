@@ -1,1 +1,128 @@
-<p>list-members works!</p>
+<div class="page">
+    <div class="page__box p-3 mt-2">
+      <div class="row d-flex">
+        <div class="col-sm-6">
+          <h3>Member's Details</h3>
+        </div>
+        <div class="col-sm-6 d-flex flex-row-reverse">
+          <button
+            (click)="onAddNewMemberDetails()"
+            mat-fab
+            class="action_buttons"
+            color="primary"
+          >
+            <!-- <mat-icon>add</mat-icon> -->Add
+          </button>
+          <!-- <app-status-filter
+            (filterStatusData)="onFilterStatusData($event)"
+          ></app-status-filter> -->
+        </div>
+      </div>
+    </div>
+    <div class="page__content shadow p-3">
+      <div class="page__content-data">
+        <table
+          class="table table-striped table-hover table-sm table-bordered cms_table"
+          *ngIf="members.length > 0; else noData"
+        >
+          <thead>
+            <tr>
+              <th class="cms_sm_col centeralign">
+                <label class="cms_label">S.N.</label>
+              </th>
+              <th class="cms_sm_col centeralign">
+                <label class="cms_label">Full Name</label>
+              </th>
+              <th>
+                <label class="cms_label">Address</label>
+              </th>
+              <th>
+                <label class="cms_label">Crew Name</label>
+              </th>
+              <th>
+                <label class="cms_label">Post</label>
+              </th>
+              <th>
+                <label class="cms_label">Contact</label>
+              </th>
+              <th class="cms_sm_col centeralign">
+                <label class="cms_label">Actions</label>
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let member of members; let i = index">
+              <td class="cms_sm_col centeralign">
+                <label class="cms_label">{{ i + 1 }}</label>
+              </td>
+              <td class="cms_sm_col centeralign">
+                <label class="cms_label">{{
+                  member.name
+                }}</label>
+              </td>
+              <!-- <td class="cms_sm_col">
+                <img
+                  [src]="testimonial?.image?.url"
+                  class="image avatar_image"
+                  alt="{{ testimonial?.image?.key }}'s picture"
+                />
+              </td> -->
+              <td>
+                <label class="cms_label">{{ member?.address}}</label>
+              </td>
+              <td>
+                <label class="cms_label">{{ member?.cname }}</label>
+              </td>
+              <!-- <td>
+                <label
+                  class="cms_label"
+                  [innerHTML]="testimonial?.description?.substring(0, 200)"
+                ></label>
+              </td> -->
+              <td>
+                <label class="cms_label">{{ member?.post}}</label>
+              </td>
+              <td>
+                <label class="cms_label">{{ member?.contact }}</label>
+              </td>
+              <td class="cms_sm_col centeralign">
+                <div class="dropdown">
+                  <!-- <mat-icon class="dropdown" data-bs-toggle="dropdown"
+                    >more_vert</mat-icon
+                  > -->
+                  <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                    <li>
+                      <a
+                        (click)="onEditMemberDetails(member?.id)"
+                        class="dropdown-item"
+                        href="javascript:void(0);"
+                      >
+                        <!-- <mat-icon class="cms_icon action_icons">edit</mat-icon> -->
+                        Edit Record
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        (click)="onDeleteMember(member?.id)"
+                        class="dropdown-item"
+                        href="javascript:void(0);"
+                      >
+                        <!-- <mat-icon class="cms_icon action_icons">delete</mat-icon> -->
+                        Delete Record
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <ng-template #noData>
+          <div class="d-flex justify-content-center">
+            <h4>No Record Found !!!</h4>
+          </div>
+        </ng-template>
+      </div>
+    </div>
+  </div>
+  

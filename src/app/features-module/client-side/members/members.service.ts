@@ -13,14 +13,15 @@ export class MemberService {
 
   constructor(private httpClient: HttpClient) {}
 
-  listAllMembers(): Observable<any> {
-    return this.httpClient.get(this.baseUrl.concat(this.apiUrlEndPoint));
+  listAllMembers(status: any): Observable<any> {
+    return this.httpClient.get(this.baseUrl.concat(this.apiUrlEndPoint), status);
   }
 
-  addMember(teacher: any): Observable<any> {
+  addMember(member: any): Observable<any> {
+    console.log("Haha", member);
     return this.httpClient.post(
       this.baseUrl.concat(this.apiUrlEndPoint),
-      teacher
+      member
     );
   }
 
@@ -37,7 +38,7 @@ export class MemberService {
     );
   }
 
-  getTeacherById(id: number): Observable<Members> {
+  getMemberById(id: number): Observable<Members> {
     return this.httpClient.get<Members>(
       this.baseUrl.concat(this.apiUrlEndPoint).concat('/' + id)
     );

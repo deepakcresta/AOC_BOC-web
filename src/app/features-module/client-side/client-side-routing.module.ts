@@ -7,7 +7,6 @@ import { ContactUsComponent } from './contact-us/contact-us.component';
 import { EventsComponent } from './events/events.component';
 import { GalleryComponent } from './gallery/gallery.component';
 import { HomeComponent } from './home/home.component';
-import { MembersComponent } from './members/members.component';
 const routes: Routes = [
     {
       path: '',
@@ -38,9 +37,16 @@ const routes: Routes = [
             component: GalleryComponent,
         },
         {
-            path: 'members',
-            component: MembersComponent,
+          path: 'members',
+          loadChildren: () =>
+            import('./members/members.module').then(
+              (m) => m.MembersModule
+            ),
         },
+        // {
+        //     path: 'members',
+        //     component: MembersComponent,
+        // },
 
       ],
     },

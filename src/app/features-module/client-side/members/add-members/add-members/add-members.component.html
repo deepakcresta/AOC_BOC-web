@@ -135,7 +135,7 @@
                   <span
                     *ngIf="
                       submitted ||
-                      forms['conatct'].dirty ||
+                      forms['contact'].dirty ||
                       (forms['contact'].touched && forms['contact'].invalid)
                     "
                     class="info-msg text-danger"
@@ -191,8 +191,6 @@
                     Cancel
                   </button>
                   <button
-                    mat-raised-button
-                    color="primary"
                     (click)="onSubmit(addMemberForm.value)"
                   >
                     Submit
