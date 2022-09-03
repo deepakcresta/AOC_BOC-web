@@ -1,0 +1,60 @@
+<mat-card>
+  <mat-action-list>
+    <!-- <div mat-subheader>Menu</div> -->
+    <button mat-list-item routerLink="/admin-dashboard">
+      <mat-icon class="me-1" fontSet="material-icons-outlined">home</mat-icon>
+      Home
+    </button>
+    <button mat-list-item routerLink="/admin-dashboard/profile">
+      <mat-icon class="me-1" fontSet="material-icons-outlined">person</mat-icon>
+      Profile
+    </button>
+    <button mat-list-item routerLink="/admin-dashboard/users">
+      <mat-icon class="me-1" fontSet="material-icons-outlined">group</mat-icon>
+      Users
+    </button>
+    <!-- <button mat-list-item routerLink="/admin-dashboard/category">
+      <mat-icon class="me-1" fontSet="material-icons-outlined">
+        category
+      </mat-icon>
+      Category
+    </button>
+    <button mat-list-item routerLink="/admin-dashboard/add-category">
+      <mat-icon class="me-1" fontSet="material-icons-outlined">
+        note_add
+      </mat-icon>
+      Add Category
+    </button>
+    <button mat-list-item routerLink="/admin-dashboard/quiz">
+      <mat-icon class="me-1" fontSet="material-icons-outlined">quiz</mat-icon>
+      Quiz
+    </button>
+    <button mat-list-item routerLink="/admin-dashboard/add-quiz">
+      <mat-icon class="me-1" fontSet="material-icons-outlined">
+        new_label
+      </mat-icon>
+      Add Quiz
+    </button> -->
+    
+    <button mat-list-item routerLink="/admin-dashboard/members">
+      <mat-icon class="me-1" fontSet="material-icons-outlined">group</mat-icon>
+      Members
+    </button>
+    <button mat-list-item routerLink="/admin-dashboard/events">
+      <mat-icon class="me-1" fontSet="material-icons-outlined">
+        category
+      </mat-icon>
+      Events
+    </button>
+    <button mat-list-item routerLink="/admin-dashboard/attendance">
+      <mat-icon class="me-1" fontSet="material-icons-outlined">
+        note_add
+      </mat-icon>
+      Attendance
+    </button>
+    <button mat-list-item (click)="logout()">
+      <mat-icon class="me-1" fontSet="material-icons-outlined">logout</mat-icon>
+      Logout
+    </button>
+  </mat-action-list>
+</mat-card>

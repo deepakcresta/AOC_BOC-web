@@ -1,0 +1,67 @@
+<mat-card *ngIf="users">
+  <div class="d-flex justify-content-between">
+    <h2>Users Details</h2>
+    <div>
+      <button
+        mat-raised-button
+        color="accent"
+        class="ms-2"
+        type="button"
+        (click)="goBack()"
+      >
+        Back
+      </button>
+    </div>
+  </div>
+  <mat-card-content>
+    <mat-card>
+      <div class="table-responsive">
+        <table class="table table-hover">
+          <thead class="table-light">
+            <tr>
+              <th>S.N.</th>
+              <th>UserName</th>
+              <th>Name</th>
+              <th>Email</th>
+              <th>Phone</th>
+              <th>Role</th>
+              <th>Status</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let user of users; let i = index">
+              <td>{{ i + 1 }}</td>
+              <td>{{ user.username }}</td>
+              <td>{{ user.firstName }} {{ user.lastName }}</td>
+              <td>{{ user.email }}</td>
+              <td>{{ user.phone }}</td>
+              <td>{{ user.authorities[0].authority }}</td>
+              <td>{{ user.enabled ? "ACTIVE" : "NOT_ACTIVE" }}</td>
+              <td>
+                <button
+                  mat-raised-button
+                  class="me-md-2"
+                  color="accent"
+                  type="button"
+                  routerLink="/admin-dashboard/update-user/{{ user.id }}"
+                >
+                  Update
+                </button>
+                <button
+                  *ngIf="user.authorities[0].authority !== 'ADMIN'"
+                  mat-raised-button
+                  color="warn"
+                  type="button"
+                  (click)="deleteUser(user.id)"
+                >
+                  Delete
+                </button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </mat-card>
+  </mat-card-content>
+</mat-card>

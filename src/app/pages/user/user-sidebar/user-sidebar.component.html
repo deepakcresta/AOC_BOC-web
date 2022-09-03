@@ -1,0 +1,33 @@
+<mat-card>
+  <mat-action-list>
+    <!-- <div mat-subheader>Available</div> -->
+
+    <button mat-list-item routerLink="/user-dashboard">
+      <mat-icon class="me-1" fontSet="material-icons-outlined">home</mat-icon>
+      Home
+    </button>
+
+    <button mat-list-item routerLink="/user-dashboard/profile">
+      <mat-icon class="me-1" fontSet="material-icons-outlined">person</mat-icon>
+      Profile
+    </button>
+
+    <button mat-list-item routerLink="/user-dashboard/events">
+      <mat-icon class="me-1" fontSet="material-icons-outlined">
+        category
+      </mat-icon>
+      Events
+    </button>
+    <button mat-list-item routerLink="/user-dashboard/attendance">
+      <mat-icon class="me-1" fontSet="material-icons-outlined">
+        note_add
+      </mat-icon>
+      Attendance
+    </button>
+
+    <button mat-list-item (click)="logout()">
+      <mat-icon class="me-1" fontSet="material-icons-outlined">logout</mat-icon>
+      Logout
+    </button>
+  </mat-action-list>
+</mat-card>
