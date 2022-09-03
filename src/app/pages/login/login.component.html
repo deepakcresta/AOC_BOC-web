@@ -1,0 +1,43 @@
+<div class="container">
+  <div class="row mt-3 d-flex justify-content-center">
+    <div class="col-md-6">
+      <mat-card>
+        <h1 class="d-flex align-items-center justify-content-center">
+          Login Here <mat-icon>login</mat-icon>
+        </h1>
+
+        <form [formGroup]="userLoginForm">
+          <mat-form-field appearance="outline" class="w-100">
+            <mat-label>Username</mat-label>
+            <input
+              formControlName="username"
+              type="text"
+              matInput
+              placeholder="Enter username"
+            />
+          </mat-form-field>
+
+          <mat-form-field appearance="outline" class="w-100">
+            <mat-label>Password</mat-label>
+            <input
+              formControlName="password"
+              type="password"
+              matInput
+              placeholder="Enter password"
+            />
+          </mat-form-field>
+
+          <div class="container text-center">
+            <button
+              (click)="loginUser(userLoginForm.value)"
+              mat-raised-button
+              color="primary"
+            >
+              Login
+            </button>
+          </div>
+        </form>
+      </mat-card>
+    </div>
+  </div>
+</div>

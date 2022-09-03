@@ -1,0 +1,57 @@
+
+<mat-toolbar color="primary">
+  <mat-toolbar-row>
+    <!-- <button mat-icon-button>
+      <mat-icon>menu</mat-icon>
+    </button> -->
+    <mat-icon fontSet="material-icons-outlined" class="me-1">
+      auto_stories
+    </mat-icon>
+    <h1>AOC_BOC</h1>
+    <span class="menu-spacer"></span>
+    <div>
+      <a mat-button [routerLink]="'/home'" *ngIf="!isLoggedIn"> Home </a>
+      <a mat-button [routerLink]="'/about-us'" *ngIf="!isLoggedIn"> About Us </a>
+      <a mat-button [routerLink]="'/gallery'" *ngIf="!isLoggedIn"> Gallery </a>
+      <a mat-button [routerLink]="'/contact'" *ngIf="!isLoggedIn"> Contact Us</a>
+    </div>
+    <span class="navitem-spacer"></span>
+    <div class="">
+      <button
+        *ngIf="!isLoggedIn"
+        mat-icon-button
+        matTooltip="Login"
+        (click)="navigateLogin()"
+      >
+        <mat-icon>login</mat-icon>
+      </button>
+      <button
+        *ngIf="!isLoggedIn"
+        mat-icon-button
+        matTooltip="Register"
+        (click)="navigateRegister()"
+      >
+        <mat-icon>how_to_reg</mat-icon>
+      </button>
+  
+      <button
+        *ngIf="isLoggedIn"
+        class="w-auto"
+        mat-icon-button
+        matTooltip="Profile Details"
+        (click)="navigateProfile()"
+      >
+        {{ currentUser }}
+        <mat-icon>person_outline</mat-icon>
+      </button>
+      <button
+        *ngIf="isLoggedIn"
+        mat-icon-button
+        matTooltip="Logout"
+        (click)="logout()"
+      >
+        <mat-icon>logout</mat-icon>
+      </button>
+    </div>
+  </mat-toolbar-row>
+</mat-toolbar>

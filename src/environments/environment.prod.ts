@@ -1,3 +1,4 @@
 export const environment = {
-  production: true
+  production: true,
+  baseUrl: 'https://quiz-exam-service.herokuapp.com/api/v1',
 };

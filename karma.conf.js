@@ -25,7 +25,7 @@ module.exports = function (config) {
       suppressAll: true // removes the duplicated traces
     },
     coverageReporter: {
-      dir: require('path').join(__dirname, './coverage/aoc-boc-web'),
+      dir: require('path').join(__dirname, './coverage/exam-module'),
       subdir: '.',
       reporters: [
         { type: 'html' },

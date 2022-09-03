@@ -20,16 +20,16 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have as title 'AOC_BOC-web'`, () => {
+  it(`should have as title 'exam-module'`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
-    expect(app.title).toEqual('AOC_BOC-web');
+    expect(app.title).toEqual('exam-module');
   });
 
   it('should render title', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('.content span')?.textContent).toContain('AOC_BOC-web app is running!');
+    expect(compiled.querySelector('.content span')?.textContent).toContain('exam-module app is running!');
   });
 });
