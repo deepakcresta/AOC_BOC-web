@@ -38,18 +38,13 @@ export class SignupComponent implements OnInit {
   initForm() {
     this.userForm = this.formBuilder.group({
       username: [undefined, Validators.required],
+      fullName: [undefined, Validators.required],
       password: [undefined, Validators.required],
-      firstName: [undefined, Validators.required],
-      lastName: [undefined, Validators.required],
-      gender: ['male'],
-      email: [
-        undefined,
-        Validators.compose([Validators.required, Validators.email]),
-      ],
-      phone: [
-        undefined,
-        Validators.compose([Validators.required, Validators.maxLength(10)]),
-      ],
+      post: [undefined, Validators.required],
+      crewName: [undefined, Validators.required],
+      address: [undefined, Validators.required],
+      email: [undefined, [Validators.required, Validators.email]],
+      phone: [undefined, [Validators.required, Validators.maxLength(10), Validators.minLength(10)]],
     });
   }
 
@@ -59,7 +54,7 @@ export class SignupComponent implements OnInit {
         (response: any) => {
           Swal.fire(
             'Success',
-            'User <b>' +
+            'New Member: <b>' +
               response.username +
               '</b> registered successfully!!!<br/><i>Redirecting to home page</i>.',
             'success'
