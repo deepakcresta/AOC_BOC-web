@@ -13,9 +13,10 @@
           >
             <mat-icon>add</mat-icon>Add
           </button>
-                  <!-- <app-status-filter
+          
+                  <app-status-filter
                     (filterStatusData)="onFilterStatusData($event)"
-                  ></app-status-filter> -->
+                  ></app-status-filter>
                 </div>
               </div>
             </div>
@@ -48,7 +49,7 @@
                       </td>
                       <td class="cms_sm_col centeralign">
                         <label class="cms_label">{{
-                          eve.content
+                          safeDescription(eve.content)
                         }}</label>
                       </td>
     
@@ -66,7 +67,7 @@
                         <button
                           mat-raised-button
                           class="me-md-2"
-                          color="accent"
+                          color="primary"
                           type="button"
                           routerLink="/admin-dashboard/events/edit-details/{{ eve.id }}"
                         >

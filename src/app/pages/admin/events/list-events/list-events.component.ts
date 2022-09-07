@@ -13,7 +13,7 @@ export class ListEventsComponent implements OnInit {
   toggleArray: { toggled: boolean }[] = [];
   showShortDesciption = true;
   total: number = 0;
-
+  eventContent: string = '';
   status: string = '';
 
   constructor(

@@ -1,0 +1,27 @@
+<div
+  class="btn-group filter-button-group"
+  role="group"
+  (click)="onButtonGroupClick($event)"
+>
+  <button
+    type="button"
+    class="btn btn-outline-info btn-sm no-focus active"
+    (click)="onFilter('')"
+  >
+    All
+  </button>
+  <button
+    type="button"
+    class="btn btn-outline-info btn-sm no-focus"
+    (click)="onFilter('DRAFT')"
+  >
+    Draft
+  </button>
+  <button
+    type="button"
+    class="btn btn-outline-info btn-sm no-focus"
+    (click)="onFilter('PUBLISHED')"
+  >
+    Published
+  </button>
+</div>

@@ -5,6 +5,7 @@ import { Events } from 'src/app/model/events.model';
 import { EventService } from 'src/app/services/events.service';
 import Swal from 'sweetalert2';
 import { AngularEditorConfig } from '@kolkov/angular-editor';
+import { Location } from '@angular/common';
 @Component({
   selector: 'app-add-events',
   templateUrl: './add-events.component.html',
@@ -63,7 +64,8 @@ export class AddEventsComponent implements OnInit {
   constructor(
     private eventService: EventService,
     private formBuilder: FormBuilder,
-    private router: Router
+    private router: Router,
+    private location:  Location
   ) {}
 
   ngOnInit(): void {
@@ -77,7 +79,7 @@ export class AddEventsComponent implements OnInit {
   initForm() {
     this.eventForm = this.formBuilder.group({
       content: undefined,
-      status: 'DRAFT'
+      status: 'PUBLISHED'
     });
   }
 
@@ -88,7 +90,7 @@ export class AddEventsComponent implements OnInit {
       this.eventService.addEvent(event).subscribe((response: any)=> {
         Swal.fire(
           'Success', 'Event added successfully', 'success').then(()=> {
-            this.router.navigate(['/']);
+            this.location.back();
           });
       },
       (error) => {
@@ -100,6 +102,10 @@ export class AddEventsComponent implements OnInit {
             }
       );
     }
+  }
+
+  onCancel() {
+    this.location.back();
   }
 
 }
