@@ -3,10 +3,74 @@
     <div class="col-md-6">
       <mat-card>
         <h1 class="d-flex align-items-center justify-content-center">
-          Register Here <mat-icon>how_to_reg</mat-icon>
+          Be a Member <mat-icon>how_to_reg</mat-icon>
         </h1>
 
         <form [formGroup]="userForm">
+          
+          <mat-form-field appearance="outline" class="w-100">
+            <mat-label>Full Name</mat-label>
+            <input
+              formControlName="fullName"
+              type="text"
+              matInput
+              placeholder="Enter your name"
+            />
+          </mat-form-field>
+
+          <mat-form-field appearance="outline" class="w-100">
+            <mat-label>Post</mat-label>
+            <input
+              formControlName="post"
+              type="text"
+              matInput
+              placeholder="Enter your post"
+            />
+          </mat-form-field>
+
+          <mat-form-field appearance="outline" class="w-100">
+            <mat-label>Crew Name</mat-label>
+            <input
+              formControlName="crewName"
+              type="text"
+              matInput
+              placeholder="Enter your Crew Name"
+            />
+          </mat-form-field>
+
+          <mat-form-field appearance="outline" class="w-100">
+            <mat-label>Address</mat-label>
+            <input
+              formControlName="address"
+              type="text"
+              matInput
+              placeholder="Enter your address"
+            />
+          </mat-form-field>
+
+          <mat-form-field appearance="outline" class="w-100">
+            <mat-label>Phone Number</mat-label>
+            <input
+              formControlName="phone"
+              type="number"
+              matInput
+              placeholder="Enter phone number"
+              onkeypress="if ( isNaN( String.fromCharCode(event.keyCode) )) return false;"
+              maxlength="10"
+            />
+          </mat-form-field>
+
+          <mat-form-field appearance="outline" class="w-100">
+            <mat-label>Email</mat-label>
+            <input
+              formControlName="email"
+              type="email"
+              matInput
+              placeholder="Enter email address"
+            />
+          </mat-form-field>
+
+          <mat-hint><b>For Login Purpose</b></mat-hint>
           <mat-form-field appearance="outline" class="w-100">
             <mat-label>Username</mat-label>
             <input
@@ -26,57 +90,7 @@
               matInput
               placeholder="Enter password"
             />
-          </mat-form-field>
-
-          <mat-form-field appearance="outline" class="w-100">
-            <mat-label>First Name</mat-label>
-            <input
-              formControlName="firstName"
-              type="text"
-              matInput
-              placeholder="Enter first name"
-            />
-          </mat-form-field>
-
-          <mat-form-field appearance="outline" class="w-100">
-            <mat-label>Last Name</mat-label>
-            <input
-              formControlName="lastName"
-              type="text"
-              matInput
-              placeholder="Enter last name"
-            />
-          </mat-form-field>
-
-          <div class="mb-3">
-            <mat-radio-group formControlName="gender">
-              <mat-radio-button class="me-3" [value]="'male'" checked="checked">
-                Male
-              </mat-radio-button>
-              <mat-radio-button [value]="'female'"> Female </mat-radio-button>
-            </mat-radio-group>
-          </div>
-
-          <mat-form-field appearance="outline" class="w-100">
-            <mat-label>Email</mat-label>
-            <input
-              formControlName="email"
-              type="email"
-              matInput
-              placeholder="Enter email address"
-            />
-          </mat-form-field>
-
-          <mat-form-field appearance="outline" class="w-100">
-            <mat-label>Phone Number</mat-label>
-            <input
-              formControlName="phone"
-              type="text"
-              matInput
-              placeholder="Enter phone number"
-              onkeypress="if ( isNaN( String.fromCharCode(event.keyCode) )) return false;"
-              maxlength="10"
-            />
+            <mat-hint>Password must contain atleast 4 letters, a special character and a number</mat-hint>
           </mat-form-field>
 
           <div class="container text-center">

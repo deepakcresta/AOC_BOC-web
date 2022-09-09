@@ -1,8 +1,8 @@
-<mat-card *ngIf="user">
+<mat-card *ngIf="user" class="profile">
   <h2>Profile Details</h2>
   <mat-card-content>
     <mat-card>
-      <img
+      <!-- <img
         *ngIf="user.gender == 'male' && user.profile == 'default.png'"
         src="assets/images/male-{{ user.profile }}"
         alt=""
@@ -13,7 +13,7 @@
         src="assets/images/female-{{ user.profile }}"
         alt=""
         class="p-1 profile-image"
-      />
+      /> -->
       <img
         *ngIf="user.profile != 'default.png'"
         src="assets/images/{{ user.profile }}"
@@ -28,9 +28,9 @@
               <i>{{ user.username }}</i>
             </td>
           </tr>
-          <tr *ngIf="user.firstName">
-            <th>Name :</th>
-            <td>{{ user.firstName }} {{ user.lastName }}</td>
+          <tr *ngIf="user.fullName">
+            <th>Full Name :</th>
+            <td>{{ user.fullName }}</td>
           </tr>
           <tr *ngIf="user.email">
             <th>Email :</th>
@@ -53,15 +53,24 @@
 
       <mat-card-actions>
         <button
-          mat-raised-button
-          color="accent"
+          *ngIf="userRole"
           routerLink="/admin-dashboard/update-user/{{ user.id }}"
+          mat-raised-button
+          color="primary"
+        >   
+          Update
+        </button>
+        <button
+          *ngIf="!userRole"
+          routerLink="/user-dashboard/update-user/{{ user.id }}"
+          mat-raised-button
+          color="primary"
         >
           Update
         </button>
         <button
           mat-raised-button
-          color="accent"
+          color="basic"
           class="ms-2"
           type="button"
           (click)="goBack()"

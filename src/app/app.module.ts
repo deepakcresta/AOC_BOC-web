@@ -35,15 +35,14 @@ import { AngularEditorModule } from '@kolkov/angular-editor';
 import { UserSidebarComponent } from './pages/user/user-sidebar/user-sidebar.component';
 import { NgxUiLoaderHttpModule, NgxUiLoaderModule } from 'ngx-ui-loader';
 import { UsersComponent } from './pages/admin/users/users.component';
-import { UpdateUserComponent } from './pages/admin/update-user/update-user.component';
+// import { ContactUsComponent } from './pages/admin/contact-us/contact-us.component';
 import { ContactUsComponent } from './pages/contact-us/contact-us.component';
 import { AboutUsComponent } from './pages/about-us/about-us.component';
 import { GalleryComponent } from './pages/gallery/gallery.component';
 import { UserWelcomeComponent } from './pages/user/user-welcome/user-welcome.component';
 import { UserEventsComponent } from './pages/user/user-events/user-events.component';
 import { UserAttendanceComponent } from './pages/user/user-attendance/user-attendance.component';
-
-
+import { UpdateUserComponent } from './pages/update-user/update-user.component';
 @NgModule({
   declarations: [
     AppComponent,

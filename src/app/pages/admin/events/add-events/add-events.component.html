@@ -1,1 +1,29 @@
-<p>add-events works!</p>
+<div class="container">
+    <div class="row mt-3 d-flex justify-content-center">
+      <div class="col-md-12">
+        <mat-card>
+          <h1 class="d-flex align-items-center justify-content-center">
+            Add New Event<mat-icon>add</mat-icon>
+          </h1>
+          <form [formGroup]="eventForm">
+            <angular-editor formControlName="content" [config]="editorConfig"></angular-editor>
+  
+            <div class="container text-center">
+              <button
+                (click)="onEventSubmit(eventForm.value)"
+                mat-raised-button
+                color="primary"
+              >
+                Add
+              </button>
+              <button type="reset" mat-raised-button color="accent" class="ms-3">
+                Reset
+              </button>
+              <button (click)="onCancel()" class="ms-3" mat-raised-button color="basic">Back</button>
+            </div>
+          </form>
+        </mat-card>
+      </div>
+    </div>
+  </div>
+  

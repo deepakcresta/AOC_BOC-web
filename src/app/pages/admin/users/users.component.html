@@ -1,10 +1,10 @@
-<mat-card *ngIf="users">
+<mat-card *ngIf="users" class="userBox">
   <div class="d-flex justify-content-between">
     <h2>Users Details</h2>
     <div>
       <button
         mat-raised-button
-        color="accent"
+        color="basic"
         class="ms-2"
         type="button"
         (click)="goBack()"
@@ -26,6 +26,8 @@
               <th>Phone</th>
               <th>Role</th>
               <th>Status</th>
+              <th>Post</th>
+              <th>Address</th>
               <th>Action</th>
             </tr>
           </thead>
@@ -33,30 +35,63 @@
             <tr *ngFor="let user of users; let i = index">
               <td>{{ i + 1 }}</td>
               <td>{{ user.username }}</td>
-              <td>{{ user.firstName }} {{ user.lastName }}</td>
+              <td>{{ user.fullName}}</td>
               <td>{{ user.email }}</td>
               <td>{{ user.phone }}</td>
               <td>{{ user.authorities[0].authority }}</td>
               <td>{{ user.enabled ? "ACTIVE" : "NOT_ACTIVE" }}</td>
-              <td>
+              <td>{{ user.post}}</td>
+              <td>{{ user.address}}</td>
+              <!-- <td>
+                
+              </td> -->
+              <td class="cms_sm_col centeralign">
                 <button
+                  (click)="onApprove(user?.id)"
                   mat-raised-button
                   class="me-md-2"
-                  color="accent"
+                  color="primary"
                   type="button"
-                  routerLink="/admin-dashboard/update-user/{{ user.id }}"
                 >
-                  Update
+                  Approve
                 </button>
                 <button
                   *ngIf="user.authorities[0].authority !== 'ADMIN'"
+                  (click)="onDisapprove(user?.id)"
                   mat-raised-button
                   color="warn"
-                  type="button"
-                  (click)="deleteUser(user.id)"
+                  type="button"  
                 >
-                  Delete
+                  Disapprove
+                  
                 </button>
+                <div class="dropdown">
+                  <mat-icon class="dropdown" data-bs-toggle="dropdown"
+                    >more_vert</mat-icon
+                  >
+                  <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                    <li>
+                      <a
+                        routerLink="/admin-dashboard/update-user/{{ user.id }}"
+                        class="dropdown-item"
+                        href="javascript:void(0);"
+                      >
+                        <mat-icon class="cms_icon action_icons">edit</mat-icon>
+                        Edit Record
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        (click)="deleteUser(user.id)"
+                        class="dropdown-item"
+                        href="javascript:void(0);"
+                      >
+                        <mat-icon class="cms_icon action_icons">delete</mat-icon>
+                        Delete Record
+                      </a>
+                    </li>
+                  </ul>
+                </div>
               </td>
             </tr>
           </tbody>

@@ -1,9 +1,5 @@
 export class Events {
     id: number = 0;
-    name: string = '';
-    address: string = '';
-    crewname: string = '';
-    post: string = '';
-    contact: string = '';
+    content: string = '';
     status: string = '';
 }

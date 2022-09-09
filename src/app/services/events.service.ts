@@ -1,4 +1,4 @@
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
@@ -14,7 +14,17 @@ export class EventService {
   constructor(private httpClient: HttpClient) {}
 
   listAllEvents(status: any): Observable<any> {
-    return this.httpClient.get(this.baseUrl.concat(this.apiUrlEndPoint), status);
+    // return this.httpClient.get(this.baseUrl.concat(this.apiUrlEndPoint), status);
+    let params = new HttpParams();
+    if (status) {
+      params = params.append('status', status);
+    }
+    return this.httpClient.get<any>(
+      this.baseUrl.concat(this.apiUrlEndPoint),
+      {
+        params,
+      }
+    );
   }
 
   addEvent(event: any): Observable<any> {
