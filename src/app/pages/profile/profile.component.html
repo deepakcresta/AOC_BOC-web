@@ -1,4 +1,4 @@
-<mat-card *ngIf="user">
+<mat-card *ngIf="user" class="profile">
   <h2>Profile Details</h2>
   <mat-card-content>
     <mat-card>
@@ -53,9 +53,18 @@
 
       <mat-card-actions>
         <button
+          *ngIf="userRole"
+          routerLink="/admin-dashboard/update-user/{{ user.id }}"
           mat-raised-button
           color="primary"
-          routerLink="/admin-dashboard/update-user/{{ user.id }}"
+        >   
+          Update
+        </button>
+        <button
+          *ngIf="!userRole"
+          routerLink="/user-dashboard/update-user/{{ user.id }}"
+          mat-raised-button
+          color="primary"
         >
           Update
         </button>

@@ -11,13 +11,26 @@ import Swal from 'sweetalert2';
 })
 export class UsersComponent implements OnInit {
   users: User[] = [];
-
+  singleUser: User = new User();
   constructor(private userService: UserService, private location: Location) {}
 
   ngOnInit(): void {
     this.userService.getAllUsers().subscribe((data: User[]) => {
       this.users = data;
     });
+  }
+
+  onApprove(id: any){
+
+  }
+
+  onDisapprove(id: any){
+    console.log(id);
+    this.userService.getUserById(id).subscribe((data: any)=> {
+     this.singleUser = data.User;
+    });
+    console.log(this.singleUser);
+
   }
 
   goBack() {

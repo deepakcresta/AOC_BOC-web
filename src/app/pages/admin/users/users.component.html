@@ -42,25 +42,56 @@
               <td>{{ user.enabled ? "ACTIVE" : "NOT_ACTIVE" }}</td>
               <td>{{ user.post}}</td>
               <td>{{ user.address}}</td>
-              <td>
+              <!-- <td>
+                
+              </td> -->
+              <td class="cms_sm_col centeralign">
                 <button
+                  (click)="onApprove(user?.id)"
                   mat-raised-button
                   class="me-md-2"
                   color="primary"
                   type="button"
-                  routerLink="/admin-dashboard/update-user/{{ user.id }}"
                 >
-                  Update
+                  Approve
                 </button>
                 <button
                   *ngIf="user.authorities[0].authority !== 'ADMIN'"
+                  (click)="onDisapprove(user?.id)"
                   mat-raised-button
                   color="warn"
-                  type="button"
-                  (click)="deleteUser(user.id)"
+                  type="button"  
                 >
-                  Delete
+                  Disapprove
+                  
                 </button>
+                <div class="dropdown">
+                  <mat-icon class="dropdown" data-bs-toggle="dropdown"
+                    >more_vert</mat-icon
+                  >
+                  <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                    <li>
+                      <a
+                        routerLink="/admin-dashboard/update-user/{{ user.id }}"
+                        class="dropdown-item"
+                        href="javascript:void(0);"
+                      >
+                        <mat-icon class="cms_icon action_icons">edit</mat-icon>
+                        Edit Record
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        (click)="deleteUser(user.id)"
+                        class="dropdown-item"
+                        href="javascript:void(0);"
+                      >
+                        <mat-icon class="cms_icon action_icons">delete</mat-icon>
+                        Delete Record
+                      </a>
+                    </li>
+                  </ul>
+                </div>
               </td>
             </tr>
           </tbody>

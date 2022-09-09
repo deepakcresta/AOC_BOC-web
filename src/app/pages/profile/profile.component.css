@@ -5,3 +5,7 @@
   border: 2px solid gray;
   object-fit: cover;
 }
+
+.profile {
+  margin: 1.5rem;
+}

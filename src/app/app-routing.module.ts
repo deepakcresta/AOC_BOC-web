@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AboutUsComponent } from './pages/about-us/about-us.component';
 import { DashboardComponent } from './pages/admin/dashboard/dashboard.component';
-import { UpdateUserComponent } from './pages/admin/update-user/update-user.component';
+import { UpdateUserComponent } from './pages/update-user/update-user.component';
 import { UsersComponent } from './pages/admin/users/users.component';
 import { WelcomeComponent } from './pages/admin/welcome/welcome.component';
 import { ContactUsComponent } from './pages/contact-us/contact-us.component';
@@ -104,7 +104,11 @@ const routes: Routes = [
       {
         path: 'attendance',
         component: UserAttendanceComponent
-      }
+      },
+      {
+        path: 'update-user/:id',
+        component: UpdateUserComponent,
+      },
     ],
   },
   { path: '', redirectTo: '', pathMatch: 'full' },
